@@ -33,6 +33,7 @@ class App{
   }
   start(){
     this.getGrades()
+    this.gradeForm.onSubmit(this.createGrade)
   }
   createGrade(name, course, grade) {
     console.log("name", name, "course", course, "grade", grade)
@@ -42,6 +43,5 @@ class App{
   }
   handleCreateGradeSuccess() {
     this.getGrades()
-    this.gradeForm.onSubmit(this.createGrade)
   }
 }
