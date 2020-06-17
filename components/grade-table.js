@@ -17,6 +17,27 @@ class GradeTable{
       }
       tbody.append(row)
     }
-
+  }
+  onDeleteClick(deleteGrade){
+    this.deleteGrade = deleteGrade
+  }
+  renderGradeRow(data, deleteGrade){
+    var desiredData = ["name", "course", "grade"]
+    var row = document.createElement("tr")
+    for (var j = 0; j < desiredData.length; j++) {
+      var tData = document.createElement("td")
+      tData.textContent = data[desiredData[j]]
+      row.append(tData)
+    }
+    var tDelete = document.createElement("td")
+    var deleteButton = document.createElement("button")
+    deleteButton.classList.add("btn", "btn-danger", "btn-sm")
+    deleteButton.textContent = "Delete"
+    deleteButton.addEventListener('click',function(){
+      this.deleteGrade(data.id)
+    })
+    tDelete.append(deleteButton)
+    row.append(tDelete)
+    return row
   }
 }
