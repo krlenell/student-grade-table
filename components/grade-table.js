@@ -13,7 +13,7 @@ class GradeTable{
       tbody.append(row)
     }
     if(grades.length === 0){
-      this.noGradesElement.className = ""
+      this.noGradesElement.className = "d-block"
     } else {
       this.noGradesElement.className = "d-none"
     }
