@@ -42,5 +42,6 @@ class App{
   }
   handleCreateGradeSuccess() {
     this.getGrades()
+    this.gradeForm.onSubmit(this.createGrade)
   }
 }
