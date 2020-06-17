@@ -9,12 +9,7 @@ class GradeTable{
       tbody.removeChild(tbody.lastElementChild)
     }
     for(var i = 0; i < grades.length; i++){
-      var row = document.createElement("tr")
-      for(var j = 0; j < desiredData.length; j++){
-        var tData = document.createElement("td")
-        tData.textContent = grades[i][desiredData[j]]
-        row.append(tData)
-      }
+      var row = this.renderGradeRow(grades[i], this.deleteGrade)
       tbody.append(row)
     }
   }
