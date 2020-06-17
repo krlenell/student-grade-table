@@ -1,9 +1,9 @@
 class GradeTable{
-  constructor(tableElement){
+  constructor(tableElement, noGradesElement){
     this.tableElement = tableElement
+    this.noGradesElement = noGradesElement
   }
   updateGrades(grades){
-    var desiredData =["name", "course", "grade"]
     var tbody = this.tableElement.querySelector("tbody")
     while(tbody.firstElementChild){
       tbody.removeChild(tbody.lastElementChild)
@@ -11,6 +11,11 @@ class GradeTable{
     for(var i = 0; i < grades.length; i++){
       var row = this.renderGradeRow(grades[i], this.deleteGrade)
       tbody.append(row)
+    }
+    if(grades.length === 0){
+      this.noGradesElement.className = ""
+    } else {
+      this.noGradesElement.className = "d-none"
     }
   }
   onDeleteClick(deleteGrade){
@@ -29,7 +34,7 @@ class GradeTable{
     deleteButton.classList.add("btn", "btn-danger", "btn-sm")
     deleteButton.textContent = "Delete"
     deleteButton.addEventListener('click',function(){
-      this.deleteGrade(data.id)
+      deleteGrade(data.id)
     })
     tDelete.append(deleteButton)
     row.append(tDelete)
