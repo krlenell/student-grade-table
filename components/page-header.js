@@ -3,7 +3,7 @@ class PageHeader{
     this.headerElement = headerElement
   }
   updateAverage(newAverage){
-    var aveBadge = this.headerElement.querySelector("span")
+    const aveBadge = this.headerElement.querySelector("span")
     aveBadge.textContent = newAverage
   }
 }

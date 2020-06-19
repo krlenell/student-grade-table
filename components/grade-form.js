@@ -10,10 +10,10 @@ class GradeForm{
   }
   handleSubmit(event){
     event.preventDefault()
-    var formData = new FormData(event.target)
-    var formName = formData.get("name")
-    var formCourse = formData.get("course")
-    var formGrade = formData.get("grade")
+    const formData = new FormData(event.target)
+    const formName = formData.get("name")
+    const formCourse = formData.get("course")
+    const formGrade = formData.get("grade")
     this.createGrade(formName, formCourse, formGrade)
     this.formElement.reset()
   }
